@@ -63,16 +63,16 @@ func (c Cell) SetProperties( p CellProperties) {
 
 func (c Cell) Borders() CellBorders {
 	if c.x.TcPr.TcBorders == nil {
-		c.x.TcPr.TcBorders = wml.NewCT_TcBorders()
+		c.x.TcBorders = wml.NewCT_TcBorders()
 	}
-	return CellBorders{c.x.TcPr.TcBorders}
+	return CellBorders{c.x.TcBorders}
 }
 
 func (c Cell) SetBorders( b CellBorders) {
-	//if c.x.TcPr.TcBorders == nil {
-	//	return
-	//}
-	c.x.TcPr.TcBorders = b.x
+	if c.x.TcBorders == nil {
+		return
+	}
+	c.x.TcBorders = p.x
 }
 /*
 func (c Cell) Borders() CellBorders {

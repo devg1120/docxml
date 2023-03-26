@@ -58,19 +58,22 @@ func add_row(doc *document.Document, table_name string, num int) {
 		      r2 := t.AddRow()
 		      rl := t.GetRow(1)
 		      //fmt.Print(rl)
-                      spew.Dump(rl.Cells()[0])
+                      //spew.Dump(rl.Cells()[0])
 
 		      rp := rl.Properties()
                       r2.SetProperties(rp)
 
 		    for _, cell := range rl.Cells() {
-			 //fmt.Printf("%s\n",cell)
+		    //for _, _ = range rl.Cells() {
 		         pro := cell.Properties()
-			 //fmt.Printf("%#v\n",pro)
+		         bod := cell.Borders()
+                         spew.Dump(bod)
 		         c := r2.AddCell()
 			 c.SetProperties( pro)
+			 c.SetBorders( bod)
 		   	 c.AddParagraph()
 	            }
+                      //spew.Dump(rl.Cells()[0])
                       //spew.Dump(r2.Cells()[0])
 
 		    /*
